@@ -40,17 +40,17 @@ rates for Regular Customer...*/
 	            System.out.println(data);
 	 }
 	 
-	 /*uc2 find the
-cheapest Hotel for a
-given Date Range*/
+//	 /*uc2 find the
+//cheapest Hotel for a
+//given Date Range*/
 	 
 	 private static final DateTimeFormatter DATE_RANGE_FORMAT1 = DateTimeFormatter.ofPattern("ddMMMyyyy");
 
 		public static boolean findcheapestHotel(String initialDateRange, String endDateRange) {
 			AddHotel();
-			LocalDate startDate1 = LocalDate.parse(initialDateRange, DATE_RANGE_FORMAT);
+			LocalDate initialDateRange1 = LocalDate.parse(initialDateRange1, DATE_RANGE_FORMAT);
 			LocalDate endDate1 = LocalDate.parse(endDateRange, DATE_RANGE_FORMAT);
-			long days = ChronoUnit.DAYS.between(initialDateRange, endDateRange);
+			long days = ChronoUnit.DAYS.between(initialDateRange1, endDateRange);
 
 			List<Hotel> rates = hotels.stream().map(hotelData -> {
 				Hotel result = new Hotel();
@@ -70,7 +70,7 @@ each Hotel */
 		public static boolean addweekdayweekend() {
 
 			System.out.println("Enter how many hotels :");
-			Scanner scan;
+			Scanner scan = scanner;
 			int val = scan.nextInt();
 			for (int i = 0; i < val; i++) {
 				System.out.println("Enter the hotel name :");
@@ -88,22 +88,23 @@ each Hotel */
 			}
 			return true;
 		}
-		/*uc4 the cheapest
-Hotel for a given Date
-Range based on weekday
-and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
-		private static final DateTimeFormatter DATE_FORMAT1 = DateTimeFormatter.ofPattern("ddMMMyyyy");
+//		/*uc4 the cheapest
+//Hotel for a given Date
+//Range based on weekday
+//and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
+		
+		private static final DateTimeFormatter DATE_RANGE_FORMAT2 = DateTimeFormatter.ofPattern("ddMMMyyyy");
 
-		public static boolean cheapesthotelweekdayweekend(String startDate, String endDate) {
+		public static boolean cheapesthotelweekdayweekend(String initialDateRange, String endDate) {
 			addweekdayweekend();
-			LocalDate startDate2 = LocalDate.parse(startDate, DATE_FORMAT1);
-			LocalDate endDate2 = LocalDate.parse(endDate, DATE_FORMAT1);
-			int days = (int) ChronoUnit.DAYS.between(startDate2, endDate2);
+			LocalDate initialDateRange1 = LocalDate.parse(initialDateRange1, DATE_RANGE_FORMAT);
+			LocalDate endDate2 = LocalDate.parse(endDate, DATE_RANGE_FORMAT);
+			int days = (int) ChronoUnit.DAYS.between(initialDateRange1, endDate2);
 
 			List<Hotel> rates = hotels.stream().map(hotelData -> {
 				Hotel res = new Hotel();
 
-				if (startDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY)
+				if (initialDateRange1.getDayOfWeek().equals(DayOfWeek.SATURDAY)
 						|| endDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
 //					res.setTotalrate(hotelData.getWeekendRate() * days);
 					res.setTotalrate(hotelData.getWeekdayRate() + hotelData.getWeekendRate() * days);
@@ -121,22 +122,19 @@ and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
 			rates.forEach(System.out::println);
 			return true;
 		}
-		/*uc5 the cheapest
-Hotel for a given Date
-Range based on weekday
-and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
-		private static final DateTimeFormatter DATE_FORMAT5 = DateTimeFormatter.ofPattern("ddMMMyyyy");
+		/*uc5 the cheapest Hotel for a given Date Range based on weekday and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
+		private static final DateTimeFormatter DATE_RANGE_FORMAT3 = DateTimeFormatter.ofPattern("ddMMMyyyy");
 
-		public static boolean addratingseachhotel(String startDate, String endDate) {
+		public static boolean addratingseachhotel(String initialDateRange, String endDate) {
 			addweekdayweekend();
-			LocalDate startDate2 = LocalDate.parse(startDate, DATE_FORMAT5);
-			LocalDate endDate2 = LocalDate.parse(endDate, DATE_FORMAT5);
-			int days = (int) ChronoUnit.DAYS.between(startDate2, endDate2);
+			LocalDate initialDateRange1 = LocalDate.parse(initialDateRange1, DATE_RANGE_FORMAT);
+			LocalDate endDate2 = LocalDate.parse(endDate, DATE_RANGE_FORMAT);
+			int days = (int) ChronoUnit.DAYS.between(initialDateRange1, endDate2);
 
 			List<Hotel> rates = hotels.stream().map(hotelData -> {
 				Hotel res = new Hotel();
 
-				if (startDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY)
+				if (initialDateRange1.getDayOfWeek().equals(DayOfWeek.SATURDAY)
 						|| endDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
 					res.setTotalrate(hotelData.getWeekdayRate() + hotelData.getWeekendRate() * days);
 				} else {
@@ -153,18 +151,18 @@ and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
 			rates.forEach(System.out::println);
 			return true;
 		}
-		
-		private static final DateTimeFormatter DATE_FORMAT2 = DateTimeFormatter.ofPattern("ddMMMyyyy");
-		public static boolean cheapesthoteltobest(String startDate, String endDate) {
+		/*uc6*/
+		private static final DateTimeFormatter DATE_RANGE_FORMAT4 = DateTimeFormatter.ofPattern("ddMMMyyyy");
+		public static boolean cheapesthoteltobest(String initialDateRange1, String endDate) {
 			addweekdayweekend();
-			LocalDate startDate2 = LocalDate.parse(startDate, DATE_FORMAT2);
-			LocalDate endDate2 = LocalDate.parse(endDate, DATE_FORMAT2);
-			int days = (int) ChronoUnit.DAYS.between(startDate2, endDate2);
+			LocalDate initialDateRange11 = LocalDate.parse(initialDateRange11, DATE_RANGE_FORMAT);
+			LocalDate endDate2 = LocalDate.parse(endDate, DATE_RANGE_FORMAT);
+			int days = (int) ChronoUnit.DAYS.between(initialDateRange11, endDate2);
 
 			List<Hotel> rates = hotels.stream().map(hotelData -> {
 				Hotel res = new Hotel();
 
-				if (startDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY)
+				if (initialDateRange11.getDayOfWeek().equals(DayOfWeek.SATURDAY)
 						|| endDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
 					res.setTotalrate(hotelData.getWeekdayRate() + hotelData.getWeekendRate() * days);
 				} else {
@@ -181,18 +179,18 @@ and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
 			rates.forEach(System.out::println);
 			return true;
 		}
-		
+		/*uc7*/
 		private static final DateTimeFormatter DATE_FORMAT3 = DateTimeFormatter.ofPattern("ddMMMyyyy");
-		public static boolean bestratedhotel(String startDate, String endDate) {
+		public static boolean bestratedhotel(String initialDateRange1, String endDate) {
 			addweekdayweekend();
-			LocalDate startDate2 = LocalDate.parse(startDate, DATE_FORMAT3);
+			LocalDate initialDateRange11 = LocalDate.parse(initialDateRange11, DATE_FORMAT3);
 			LocalDate endDate2 = LocalDate.parse(endDate, DATE_FORMAT3);
-			int days = (int) ChronoUnit.DAYS.between(startDate2, endDate2);
+			int days = (int) ChronoUnit.DAYS.between(initialDateRange11, endDate2);
 
 			List<Hotel> rates = hotels.stream().map(hotelData -> {
 				Hotel res = new Hotel();
 
-				if (startDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY)
+				if (initialDateRange11.getDayOfWeek().equals(DayOfWeek.SATURDAY)
 						|| endDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
 					res.setTotalrate(hotelData.getWeekdayRate() + hotelData.getWeekendRate() * days);
 				} else {
@@ -209,11 +207,11 @@ and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
 			rates.forEach(System.out::println);
 			return true;
 		}
-		
+		/*uc9*/
 		public boolean addspecialrates() {
 
 			System.out.println("Enter the how many hotel you want to add :");
-			Scanner scan;
+			Scanner scan = scanner;
 			int val = scan.nextInt();
 			for (int i = 0; i < val; i++) {
 				System.out.println("Enter the hotel name :");
@@ -237,10 +235,20 @@ and weekend - I/P – 11Sep2020, 12Sep2020 - O/P – Lakewood and Bridgewood*/
 		}
 		public static void main(String args[]) {
 
-			Hotel obj = new Hotel();
-			obj.Hotel();
-		}
-}
+			HotelReservation obj = new HotelReservation();
+			obj.addweekdayweekend();
+			//obj.AddHotel();
+			//obj.findcheapestHotel();
+			//obj.cheapesthotelweekdayweekend();
+			//obj.addratingseachhotel();
+			//obj.cheapesthoteltobest();
+			//obj.bestratedhotel();
+			//obj.addaddspecialrates();
+			
+			
+			}
 
 }
+
+
 
